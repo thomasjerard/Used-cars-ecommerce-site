@@ -1,0 +1,115 @@
+
+  .Sidebar{
+    min-height: 100vh;
+    width: 250px;
+    background-color: #242424;
+    /* float: left; */
+    position: fixed;
+    padding-left:20px ;
+  }
+  
+  .SidebarList {
+    height: auto;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  
+  .SidebarList .row{
+    width: 100%;
+    height: 60px;
+    /* border: 1px solid #070707; */
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .SidebarList .row:hover{
+    background-color: #070707;
+  }
+  .row .icon{
+    flex: 30%;
+    size: 150%;
+    display: grid;
+    place-items: center;
+  }
+  .icon svg{
+    font-size: large;
+  }
+  .row .title{
+    flex: 70%;
+  }
+  
+  .SidebarList #active{
+    background-color: #C6DE41;
+    color: #070707;
+    border-bottom-left-radius: 10px;
+    /* border-top-left-radius:10px ; */
+  }
+  
+  .Sidebar p{
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+  }
+  
+  p .up{
+    font-weight: 300;
+  }
+
+  .Sidebar__Heading{
+    padding: 20px;
+  }
+
+  li{
+    color: #fff;
+  }
+
+  .logout-button {
+    width: 100%;
+    height: 60px;
+    background-color: #242424;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    appearance: none;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .logout-button:hover {
+    font-size: large;
+    transition: font-size .7s;
+  }
+
+  .logout-button:hover .logout-icon{
+    font-size: x-large;
+    transition: font-size .7s;
+  }
+  .logout-icon {
+    flex: 30%;
+    margin-right: 5px;
+    font-size: large;
+    transition: font-size 1s;
+  }
+  
+  .logout-text {
+    flex: 70%;
+    text-align: left;
+    /* font-weight: bold; */
+  }

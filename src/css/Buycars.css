@@ -1,0 +1,15 @@
+.App{
+    background-color: #070707;
+}
+.container1{
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+.content{
+    flex: 80%;
+    background-color: #070707;
+    color: #fff;
+    padding: 50px 20px;
+    margin-left: 250px;
+}

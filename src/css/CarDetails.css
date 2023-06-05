@@ -1,0 +1,29 @@
+.container_cardetails{
+    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_cardetails .cardetails{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.container_cardetails .cardetails .product-image{
+    /* width: 100%; */
+    height: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.container_cardetails .cardetails .product-image img{
+    object-fit: cover;
+    width: 400px;
+    height: 400px;
+    border-radius: 10px;
+}
+

@@ -13,8 +13,68 @@ function Sidebar() {
   const [activeId, setActiveId] = useState('');
 
   useEffect(() => {
-    setRowActive();
-  }, []);
+    console.log("Location changed");
+    const rows = document.getElementsByClassName('row');
+    if(rows.length > 0){
+    if (location.pathname === '/cardetails' || location.pathname === '/buycars') {
+        rows[0].id = 'active';
+        rows[1].id = '';
+        rows[2].id = '';
+        rows[3].id = '';
+        rows[4].id = '';
+        setActiveId(rows[0].id);
+        setActiveId(rows[1].id);
+        setActiveId(rows[2].id);
+        setActiveId(rows[3].id);
+        setActiveId(rows[4].id);
+    }else if (location.pathname === '/sellcars') {
+        rows[1].id = 'active';
+        rows[0].id = '';
+        rows[2].id = '';
+        rows[3].id = '';
+        rows[4].id = '';
+        setActiveId(rows[0].id);
+        setActiveId(rows[1].id);
+        setActiveId(rows[2].id);
+        setActiveId(rows[3].id);
+        setActiveId(rows[4].id);
+    }else if (location.pathname === '/messages') {
+        rows[2].id = 'active';
+        rows[0].id = '';
+        rows[1].id = '';
+        rows[3].id = '';
+        rows[4].id = '';
+        setActiveId(rows[0].id);
+        setActiveId(rows[1].id);
+        setActiveId(rows[2].id);
+        setActiveId(rows[3].id);
+        setActiveId(rows[4].id);
+    }else if (location.pathname === '/savedcars') {
+        rows[3].id = 'active';
+        rows[0].id = '';
+        rows[2].id = '';
+        rows[1].id = '';
+        rows[4].id = '';
+        setActiveId(rows[0].id);
+        setActiveId(rows[1].id);
+        setActiveId(rows[2].id);
+        setActiveId(rows[3].id);
+        setActiveId(rows[4].id);
+    }
+    else if (location.pathname === '/profile') {
+        rows[4].id = 'active';
+        rows[0].id = '';
+        rows[2].id = '';
+        rows[3].id = '';
+        rows[1].id = '';
+        setActiveId(rows[0].id);
+        setActiveId(rows[1].id);
+        setActiveId(rows[2].id);
+        setActiveId(rows[3].id);
+        setActiveId(rows[4].id);
+    }
+  }
+  }, [location]);
 
   if (location.pathname === '/signin' || location.pathname === '/signup') {
     return null;
@@ -24,39 +84,8 @@ function Sidebar() {
     navigate('/signin');
   };
 
-  const setRowActive = () => {
-    const rows = document.getElementsByClassName('row');
-    if (location.pathname === '/cardetails' || location.pathname === '/buycars') {
-      if (rows.length >= 0) {
-        rows[0].id = 'active';
-        setActiveId(rows[0].id);
-      }
-    }else if (location.pathname === '/sellcars') {
-      if (rows.length >= 1) {
-        rows[1].id = 'active';
-        setActiveId(rows[1].id);
-      }
-    }else if (location.pathname === '/messages') {
-      if (rows.length >= 2) {
-        rows[2].id = 'active';
-        setActiveId(rows[2].id);
-      }
-    }else if (location.pathname === '/savedcars') {
-      if (rows.length >= 3) {
-        rows[3].id = 'active';
-        setActiveId(rows[3].id);
-    }}
-    else if (location.pathname === '/profile') {
-      if (rows.length >= 4) {
-        rows[4].id = 'active';
-        setActiveId(rows[4].id);
-      }
-    }
-  };
-
   const handleButtonClick = (path) => {
-    window.location.pathname = path;
-    setRowActive();
+    navigate(path);
   };
 
   return (

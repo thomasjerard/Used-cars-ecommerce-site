@@ -32,9 +32,10 @@ const SignUp = () => {
             // Save user data to Firestore
             const userRef = firestore.collection('users').doc(user.uid);
             userRef.set({
-              name,
-              email,
-              username,
+              displayName:username,
+              email:email,
+              username:username,
+              uid:user.uid
             })
               .then(() => {
                 // User data saved successfully

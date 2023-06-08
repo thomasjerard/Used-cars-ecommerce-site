@@ -37,13 +37,14 @@ function Products() {
     <div className="product-container">
       {products.length === 0 && <p>No products are available</p>}
       {products.map((product) => (
-        <div key={product.id} className="product-item">
+        <div key={product.id} className="product-item" onClick={() => addToCart(product)}>
           <div className="product-image">
             <img src={product.imageUrl} alt="Product" className="img-fluid" />
           </div>
           <h3>{product.carName}</h3>
           <p>Price: {product.price}</p>
           <button onClick={() => addToCart(product)} className="btn btn-primary">More Details</button>
+          {/* <p>More Details</p> */}
         </div>
       ))}
     </div>

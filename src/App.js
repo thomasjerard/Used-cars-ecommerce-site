@@ -8,7 +8,7 @@ import SignUp from './components/SignUp';
 import { UserProvider } from './global/UserContext';
 import { ProductProvider } from './global/ProductContest';
 import CarDetails from './components/CarDetails';
-
+import UserProfile from './components/UserProfile';
 function App() {
   return (
     <div className="App">
@@ -23,6 +23,7 @@ function App() {
             <Route path="/buycars" element={<Buycars />} />
             <Route path="/sellcars" element={<Sellcars />} />
             <Route path="/cardetails" element={<CarDetails/>}/>
+            <Route path="/profile" element={<UserProfile/>}/>
           </Routes>
         </Router>
       </ProductProvider>

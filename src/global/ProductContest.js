@@ -70,13 +70,13 @@ export const ProductProvider = ({ children }) => {
     localStorage.setItem('selectedProduct', JSON.stringify(product));
   };
 
-  useEffect(() => {
-    // Retrieve the selectedProduct value from localStorage
-    const storedProduct = localStorage.getItem('selectedProduct');
-    if (storedProduct) {
-      setCurrentProduct(JSON.parse(storedProduct));
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Retrieve the selectedProduct value from localStorage
+  //   const storedProduct = localStorage.getItem('selectedProduct');
+  //   if (storedProduct) {
+  //     setCurrentProduct(JSON.parse(storedProduct));
+  //   }
+  // }, []);
 
   // Value object to be passed to consumers of the context
   const value = {

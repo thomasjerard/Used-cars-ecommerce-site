@@ -4,7 +4,7 @@ import { UserContext } from '../global/UserContext';
 import '../css/Navbar.css';
 
 const Navbar = () => {
-  const { user } = useContext(UserContext);; // Access the authenticated user
+  const { user } = useContext(UserContext); // Access the authenticated user
 
   return (
     <nav className="navbar">

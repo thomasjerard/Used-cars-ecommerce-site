@@ -17,7 +17,7 @@ model = pickle.load(open('car.pkl', 'rb'))
 #     return jsonify({"message": "Received GET request successfully!"})
 
 
-@app.route("/predict", methods=["POST", "GET"])
+@app.route("/predict", methods=["POST"])
 def predict():
 
     brands = [

@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { database } from '../Firebase';
+import { firestore } from '../Firebase';
 import { UserContext } from '../global/UserContext';
 
 // Create the context
@@ -9,76 +9,67 @@ export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
   const { user } = useContext(UserContext);
 
-  // State for current product and liked products
   const [currentProduct, setCurrentProduct] = useState(null);
   const [likedProducts, setLikedProducts] = useState([]);
 
-  useEffect(() => {
-    if (user && user.uid) {
-      // Reference to the user details in the database
-      const userDetailsRef = database.ref('userDetails').child(user.uid);
+  const addLikedProduct = async (product) => {
+    const updatedLikedProducts = [...likedProducts, product];
+    setLikedProducts(updatedLikedProducts);
+    console.log('local list updated');
 
-      // Function to add user details to the database
-      const addUserDetails = (userId, likedProducts) => {
-        userDetailsRef.set({
-          userId,
-          likedProducts
-        })
-          .then(() => {
-            console.log('User details added successfully');
-          })
-          .catch((error) => {
-            console.log('Error adding user details:', error);
-          });
-      };
-
-      // Check if user details exist in the database
-      userDetailsRef.once('value')
-        .then((snapshot) => {
-          const userDetails = snapshot.val();
-          if (userDetails) {
-            // User details exist, initialize the state with the existing values
-            const { likedProducts } = userDetails;
-            setLikedProducts(likedProducts);
-          } else {
-            // User details don't exist, create a new entry in the database
-            addUserDetails(user.uid, []);
-          }
-        })
-        .catch((error) => {
-          console.log('Error retrieving user details:', error);
-        });
+    try {
+      await saveLikedProductsToDatabase(user.uid, updatedLikedProducts); // Save liked products to the database
+      console.log('Liked product saved to the database successfully');
+    } catch (error) {
+      console.log('Error saving liked product to the database:', error);
     }
-  }, [user]);
-
-  // Function to add a product to the liked products
-  const addLikedProduct = (product) => {
-    setLikedProducts((prevLikedProducts) => [...prevLikedProducts, product]);
   };
 
-  // Function to remove a product from the liked products
-  const removeLikedProduct = (product) => {
-    setLikedProducts((prevLikedProducts) =>
-      prevLikedProducts.filter((p) => p.id !== product.id)
-    );
+  const removeLikedProduct = async (product) => {
+    const updatedLikedProducts = likedProducts.filter((p) => p.id !== product.id);
+    setLikedProducts(updatedLikedProducts);
+    console.log('local list updated');
+
+    try {
+      await saveLikedProductsToDatabase(user.uid, updatedLikedProducts); // Save updated liked products to the database
+      console.log('Updated liked products saved to the database successfully');
+    } catch (error) {
+      console.log('Error saving updated liked products to the database:', error);
+    }
   };
 
-  // Function to set the currently selected product
   const selectProduct = (product) => {
     setCurrentProduct(product);
-    // Store the selectedProduct value in localStorage
-    localStorage.setItem('selectedProduct', JSON.stringify(product));
   };
 
-  // useEffect(() => {
-  //   // Retrieve the selectedProduct value from localStorage
-  //   const storedProduct = localStorage.getItem('selectedProduct');
-  //   if (storedProduct) {
-  //     setCurrentProduct(JSON.parse(storedProduct));
-  //   }
-  // }, []);
+  const saveLikedProductsToDatabase = async (userId, likedProducts) => {
+    const userRef = firestore.collection('SavedCars').doc(userId);
 
-  // Value object to be passed to consumers of the context
+    try {
+      await userRef.update({ likedProducts }); // Update the likedProducts field in Firestore
+    } catch (error) {
+      console.log('Error updating user details:', error);
+      throw error; // Re-throw the error to handle it further up the call stack if needed
+    }
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (user) {
+        const userRef = firestore.collection('SavedCars').doc(user.uid);
+        const snapshot = await userRef.get();
+        if (snapshot.exists) {
+          const userData = snapshot.data();
+          if (userData && userData.likedProducts) {
+            setLikedProducts(userData.likedProducts);
+          }
+        }
+      }
+    };
+
+    fetchData();
+  }, [user]);
+
   const value = {
     currentProduct,
     likedProducts,

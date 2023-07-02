@@ -1,0 +1,15 @@
+.Dashboard-section{
+    /* margin-left: 250px; */
+    color: aliceblue;
+}
+.Dashboard-section h1{
+    color: aliceblue;
+    margin-left: 300px;
+}
+
+.Dashboard-section .product-container{
+    display: flex;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto; /* Enable horizontal scrolling */
+}

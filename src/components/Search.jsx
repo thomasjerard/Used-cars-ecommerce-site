@@ -10,8 +10,9 @@ import {
   serverTimestamp,
   getDoc,
 } from "firebase/firestore";
-import { database } from "../Firebase";
+import { firestore } from "../Firebase";
 import { AuthContext } from "../context/AuthContext";
+import {FaSearch} from "react-icons/fa";
 
 const Search = () => {
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ const Search = () => {
 
   const handleSearch = async () => {
     const q = query(
-      collection(database, "users"),
+      collection(firestore, "users"),
       where("displayName", "==", username)
     );
 
@@ -47,14 +48,14 @@ const Search = () => {
         ? currentUser.uid + user.uid
         : user.uid + currentUser.uid;
     try {
-      const res = await getDoc(doc(database, "chats", combinedId));
+      const res = await getDoc(doc(firestore, "chats", combinedId));
 
       if (!res.exists()) {
         //create a chat in chats collection
-        await setDoc(doc(database, "chats", combinedId), { messages: [] });
+        await setDoc(doc(firestore, "chats", combinedId), { messages: [] });
 
         //create user chats
-        await updateDoc(doc(database, "userChats", currentUser.uid), {
+        await updateDoc(doc(firestore, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
             displayName: user.displayName,
@@ -63,7 +64,7 @@ const Search = () => {
           [combinedId + ".date"]: serverTimestamp(),
         });
 
-        await updateDoc(doc(database, "userChats", user.uid), {
+        await updateDoc(doc(firestore, "userChats", user.uid), {
           [combinedId + ".userInfo"]: {
             uid: currentUser.uid,
             displayName: currentUser.displayName,
@@ -80,6 +81,7 @@ const Search = () => {
   return (
     <div className="search">
       <div className="searchForm">
+        <FaSearch className="searchIcon"/>
         <input
           type="text"
           placeholder="Find a user"

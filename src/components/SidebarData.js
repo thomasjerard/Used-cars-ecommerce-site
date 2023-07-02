@@ -23,7 +23,7 @@ export const SidebarData = [
         icon: <MdForum/>,
     },
     {
-        title: 'SAVED CARS',
+        title: 'DASHBOARD',
         path: '/savedcars',
         icon: <HiSave/>,
     },

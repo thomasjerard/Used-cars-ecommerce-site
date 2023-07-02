@@ -21,7 +21,8 @@
 }
 
 .container-userprofile .user-profile .profile-header .profile-img img{
-    width: 55%;
+    width: 230px;
+    height: 230px;
     border-radius: 50%;
 }
 

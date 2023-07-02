@@ -42,7 +42,7 @@ function Products() {
             <img src={product.imageUrl} alt="Product" className="img-fluid" />
           </div>
           <h3>{product.carName}</h3>
-          <p>Price: {product.price}</p>
+          <p>Price: {(product.price-1.5).toFixed(2)}</p>
           <button onClick={() => addToCart(product)} className="btn btn-primary">More Details</button>
           {/* <p>More Details</p> */}
         </div>

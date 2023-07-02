@@ -65,7 +65,7 @@ function CarForm() {
         formData,
         userName: user.displayName,  // Add user name to the collection
         userEmail: user.email,
-        userId: user.userId
+        // userId: user.userId
       });
     
       // Get the auto-generated document ID
@@ -327,7 +327,7 @@ function CarForm() {
       </form>
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
       {successMessage && <p className="text-success">{successMessage}</p>}
-      {price && <p className="mt-4">Price: {price}</p>}
+      {price && <p className="mt-4">Price: {(price-1.5).toFixed(2)}</p>}
     </div>
   );
 };

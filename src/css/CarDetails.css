@@ -2,6 +2,7 @@
     margin-left: 250px;
     display: flex;;
     flex-direction: column;
+    overflow-y: hidden !important;
 }
 .container_cardetails .cardetails{
     display: flex;
@@ -16,7 +17,7 @@
     flex-direction: column;
     align-items: center;
     /* justify-content: center; */
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .container_cardetails .cardetails .product-image{
     /* width: 100%; */
@@ -86,7 +87,7 @@
 .right-container{
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .container_cardetails .cardetails{
     margin-top: 20px;
@@ -99,7 +100,7 @@
 .container_cardetails .cardetails .right-container{
     /* background-color: #242424; */
     width: 41rem;
-    min-height: 40rem;
+    /* min-height: 40rem; */
     margin: 20px;
 }
 

@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { auth, firestore, storage } from '../Firebase';
 import '../css/SignUp.css';
 import { useNavigate } from 'react-router-dom';
+import { doc, setDoc } from "firebase/firestore";
+
 
 const SignUp = () => {
   const [name, setName] = useState('');
@@ -19,7 +21,7 @@ const SignUp = () => {
     setSuccessMsg('');
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then( async (userCredential) => {
         const user = userCredential.user;
 
         // Update user profile
@@ -31,7 +33,7 @@ const SignUp = () => {
 
             // Save user data to Firestore
             const userRef = firestore.collection('users').doc(user.uid);
-            userRef.set({
+             userRef.set({
               displayName:username,
               email:email,
               username:username,
@@ -86,6 +88,9 @@ const SignUp = () => {
             setError('Error updating user profile. Please try again.');
             console.log(error);
           });
+          //create empty user chats on firestore
+          await setDoc(doc(firestore, "userChats", user.uid), {});
+          navigate("/");
       })
       .catch((error) => {
         // Handle any errors that occur during user creation

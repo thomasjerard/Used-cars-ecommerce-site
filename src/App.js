@@ -9,9 +9,18 @@ import { UserProvider } from './global/UserContext';
 import { ProductProvider } from './global/ProductContest';
 import CarDetails from './components/CarDetails';
 import UserProfile from './components/UserProfile';
+import ChatApp from './pages/ChatApp';
+import Dashboard from './components/Dashboard';
+
+import { AuthContextProvider } from "./context/AuthContext";
+import { ChatContextProvider } from "./context/ChatContext";
+
+
 function App() {
   return (
     <div className="App">
+      <AuthContextProvider>
+    <ChatContextProvider>
       <UserProvider>
       <ProductProvider>
         <Router>
@@ -24,10 +33,14 @@ function App() {
             <Route path="/sellcars" element={<Sellcars />} />
             <Route path="/cardetails" element={<CarDetails/>}/>
             <Route path="/profile" element={<UserProfile/>}/>
+            <Route path="/messages" element={<ChatApp/>}/>
+            <Route path="/savedcars" element={<Dashboard/>}/>
           </Routes>
         </Router>
       </ProductProvider>
       </UserProvider>
+      </ChatContextProvider>
+  </AuthContextProvider>
     </div>
   );
 }

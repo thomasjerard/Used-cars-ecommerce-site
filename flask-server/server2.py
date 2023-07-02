@@ -7,15 +7,6 @@ CORS(app)  # Allow Cross-Origin Resource Sharing (CORS)
 
 model = pickle.load(open('car.pkl', 'rb'))
 
-# @app.route("/", methods=["GET", "POST"])
-# def index():
-#     if request.method == 'POST':
-#         data = request.json  # Assuming you're sending JSON data
-#         # Process the data
-#         return jsonify({"message": "Received POST request successfully!"})
-
-#     return jsonify({"message": "Received GET request successfully!"})
-
 
 @app.route("/predict", methods=["POST"])
 def predict():

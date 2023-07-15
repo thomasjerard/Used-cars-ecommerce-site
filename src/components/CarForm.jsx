@@ -323,8 +323,10 @@ function CarForm() {
             className="form-control"
           />
         </div>
-        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
+      <div className='form-button'>
+        <button type="submit" className="btn btn-primary">Submit</button>
+      </div>
       {errorMessage && <p className="text-danger">{errorMessage}</p>}
       {successMessage && <p className="text-success">{successMessage}</p>}
       {price && <p className="mt-4">Price: {(price-1.5).toFixed(2)}</p>}

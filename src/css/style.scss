@@ -109,15 +109,16 @@
   // display: flex;
   // align-items: center;
   // justify-content: center;
+  overflow: hidden;
 
   .container {
     padding-top: 20px;
     // border: 1px solid white;
     border-radius: 10px;
     width: 95%;
-    height: calc(100% - 60px);
+    margin-top: 65px;
+    height: calc(100% - 70px);
     display: flex;
-    overflow: hidden;
     @include tablet {
      width: 90%;
     }

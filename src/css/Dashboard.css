@@ -2,6 +2,9 @@
     /* margin-left: 250px; */
     color: aliceblue;
 }
+.Dashboard-section .dashboard-container {
+    margin-top: 80px;
+}
 .Dashboard-section h1{
     color: aliceblue;
     margin-left: 300px;
@@ -11,5 +14,5 @@
     display: flex;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
-    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-x: scroll;
 }

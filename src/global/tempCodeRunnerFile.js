@@ -11,8 +11,6 @@ export const ProductProvider = ({ children }) => {
 
   const [currentProduct, setCurrentProduct] = useState(null);
   const [likedProducts, setLikedProducts] = useState([]);
-  const [soldcars, setSoldCars] = useState([]);
-  const [likedcarsIds, setLikedCarsIds] = useState([]);
 
   const addLikedProduct = async (product) => {
     const updatedLikedProducts = [...likedProducts, product];
@@ -52,7 +50,6 @@ export const ProductProvider = ({ children }) => {
     const userRef = firestore.collection('SavedCars').doc(userId);
 
     try {
-      //
       await userRef.update({ likedProducts }); // Update the likedProducts field in Firestore
     } catch (error) {
       console.log('Error updating user details:', error);
@@ -76,7 +73,6 @@ export const ProductProvider = ({ children }) => {
 
     fetchData();
   }, [user]);
-
 
   const value = {
     currentProduct,

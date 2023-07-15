@@ -160,9 +160,11 @@
   }
 
 .container_cardetails .back_button{
-    margin-left:20px;
+    margin-top: 40px;
+    margin-left:60px;
     color: #fff;
     cursor: pointer;
+    z-index: 1001;
 }
 
 .container_cardetails .back_button span{

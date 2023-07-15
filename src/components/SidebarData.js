@@ -18,6 +18,11 @@ export const SidebarData = [
         icon: <FaShoppingCart/>,
     },
     {
+        title: 'SOLD CARS',
+        path: '/soldcars',
+        icon: <FaShoppingCart/>,
+    },
+    {
         title: 'MESSAGES',
         path: '/messages',
         icon: <MdForum/>,

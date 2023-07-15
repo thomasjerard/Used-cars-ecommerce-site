@@ -29,7 +29,8 @@ function Products() {
   const addToCart = (product) => {
     // Implement your addToCart logic here
     selectProduct(product);
-    navigate('/cardetails')
+    console.log(product);
+    navigate('/cardetails/' + product.id);
 
   };
 

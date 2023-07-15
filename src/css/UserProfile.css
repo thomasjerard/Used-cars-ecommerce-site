@@ -3,7 +3,7 @@
 }
 
 .container-userprofile .user-profile{
-    margin:40px;
+    margin-top: 80px;
 }
 
 .container-userprofile .user-profile .profile-header{
@@ -36,6 +36,8 @@
 .container-userprofile .personal-info{
     margin-left: 30%;
     padding: 20px;
+    padding-bottom: 0px;
+    padding-right: 0%;
     border-width: 1px;
     border-style: solid;
     border-color: #b0b0b0;
@@ -65,4 +67,33 @@
     font-weight: 400;
     padding: 5px;
     color: rgb(168, 168, 168);
+}
+
+.container-userprofile .personal-info .edit-div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.container-userprofile .personal-info .edit-btn{
+    padding: 5px 20px;
+    padding-right: 20px;
+    display: flex;
+    align-content: center;
+    background-color: #070707;
+    border-radius: 10px 0 10px 0;
+    color: rgb(168, 168, 168);
+    font-size: 18px;
+}
+.container-userprofile .personal-info .edit-btn .icon{
+    padding-right: 5px;
+}
+.container-userprofile .personal-info .edit-btn .content-btn{
+    padding-top: 2px;
+}
+.container-userprofile .personal-info .edit-btn:hover{
+    font-size: 20px;
+    padding-top: 3.5px;
+    padding-bottom: 3.5px;
+    transition: 0.2s;
 }

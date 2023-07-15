@@ -16,65 +16,101 @@ function Sidebar() {
     console.log("Location changed");
     const rows = document.getElementsByClassName('row');
     if(rows.length > 0){
-    if (location.pathname === '/cardetails' || location.pathname === '/buycars') {
+    if (location.pathname.startsWith === '/cardetails/' || location.pathname === '/buycars') {
         rows[0].id = 'active';
         rows[1].id = '';
         rows[2].id = '';
         rows[3].id = '';
         rows[4].id = '';
+        rows[5].id = '';
         setActiveId(rows[0].id);
         setActiveId(rows[1].id);
         setActiveId(rows[2].id);
         setActiveId(rows[3].id);
         setActiveId(rows[4].id);
+        setActiveId(rows[5].id);
     }else if (location.pathname === '/sellcars') {
         rows[1].id = 'active';
         rows[0].id = '';
         rows[2].id = '';
         rows[3].id = '';
         rows[4].id = '';
+        rows[5].id = '';
         setActiveId(rows[0].id);
         setActiveId(rows[1].id);
         setActiveId(rows[2].id);
         setActiveId(rows[3].id);
         setActiveId(rows[4].id);
+        setActiveId(rows[5].id);
     }else if (location.pathname === '/messages') {
-        rows[2].id = 'active';
-        rows[0].id = '';
-        rows[1].id = '';
-        rows[3].id = '';
-        rows[4].id = '';
-        setActiveId(rows[0].id);
-        setActiveId(rows[1].id);
-        setActiveId(rows[2].id);
-        setActiveId(rows[3].id);
-        setActiveId(rows[4].id);
-    }else if (location.pathname === '/savedcars') {
         rows[3].id = 'active';
         rows[0].id = '';
-        rows[2].id = '';
         rows[1].id = '';
+        rows[2].id = '';
         rows[4].id = '';
+        rows[5].id = '';
         setActiveId(rows[0].id);
         setActiveId(rows[1].id);
         setActiveId(rows[2].id);
         setActiveId(rows[3].id);
         setActiveId(rows[4].id);
-    }
-    else if (location.pathname === '/profile') {
+        setActiveId(rows[5].id);
+    }else if (location.pathname === '/savedcars') {
         rows[4].id = 'active';
         rows[0].id = '';
         rows[2].id = '';
         rows[3].id = '';
         rows[1].id = '';
+        rows[5].id = '';
         setActiveId(rows[0].id);
         setActiveId(rows[1].id);
         setActiveId(rows[2].id);
         setActiveId(rows[3].id);
         setActiveId(rows[4].id);
+        setActiveId(rows[5].id);
+    }
+    else if (location.pathname.startsWith('/profile')) {
+        rows[5].id = 'active';
+        rows[0].id = '';
+        rows[2].id = '';
+        rows[3].id = '';
+        rows[1].id = '';
+        rows[4].id = '';
+        setActiveId(rows[0].id);
+        setActiveId(rows[1].id);
+        setActiveId(rows[2].id);
+        setActiveId(rows[3].id);
+        setActiveId(rows[4].id);
+        setActiveId(rows[5].id);
+    }
+    else if (location.pathname === '/soldcars') {
+        rows[2].id = 'active';
+        rows[0].id = '';
+        rows[1].id = '';
+        rows[3].id = '';
+        rows[4].id = '';
+        rows[5].id = '';
+        setActiveId(rows[0].id);
+        setActiveId(rows[1].id);
+        setActiveId(rows[2].id);
+        setActiveId(rows[3].id);
+        setActiveId(rows[4].id);
+        setActiveId(rows[5].id);
+    }
+    else{
+      rows[0].id = 'active';
+      rows[1].id = '';
+      rows[2].id = '';
+      rows[3].id = '';
+      rows[4].id = '';
+      setActiveId(rows[0].id);
+      setActiveId(rows[1].id);
+      setActiveId(rows[2].id);
+      setActiveId(rows[3].id);
+      setActiveId(rows[4].id);
     }
   }
-  }, [location]);
+  }, [location],[activeId]);
 
   if (location.pathname === '/signin' || location.pathname === '/signup') {
     return null;

@@ -9,6 +9,7 @@
   background-color: #242424;
   border-radius: 2em;
 } */
+
 .form_container form{
   display: flex;
   flex-wrap: wrap;
@@ -27,12 +28,17 @@
   /* border-color: #C6DE41 !important; */
   box-shadow: 0 0 0 0.25rem rgba(198, 222, 65, 0.2); 
 }
-
+.form_container .form-button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 .form_container .btn-primary{
   background-color: #C6DE41;
   color: #070707;
   margin: 2em 0; 
-  width: 100%; 
+  width: 30em;
+  height: 50px;
 }
 
 .form_container .btn-primary:hover{

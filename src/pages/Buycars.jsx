@@ -1,9 +1,9 @@
 import React from 'react';
-import Sidebar from './Sidebar';
-import Products from './Products';
+import Sidebar from '../components/Sidebar';
+import Products from '../components/Products';
 import '../css/Buycars.css';
-import NavBar from './NavBar';
-import FrontImage from './FrontImage'
+import NavBar from '../components/NavBar';
+import FrontImage from '../components/FrontImage'
 
 function Buycars() {
   return (
